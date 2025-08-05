@@ -8,53 +8,79 @@
       font-family: 'Microsoft JhengHei', sans-serif;
       background: #fdf9f4;
       margin: 0;
-      padding: 20px;
+      padding: 40px 0;
       overflow: hidden;
       display: flex;
       justify-content: center;
     }
     .container {
-      background: white;
-      width: 520px;
+      background: #fff;
+      width: 540px;
       border: 1px solid #cbbca9;
-      border-radius: 12px;
-      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      padding: 32px;
     }
     h2 {
       background-color: #f2e8dc;
       border: 2px solid #cbbca9;
-      border-radius: 8px;
-      padding: 10px;
+      border-radius: 12px;
+      padding: 12px;
       text-align: center;
-      font-size: 20px;
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    p {
+      text-align: center;
+      color: #6b5c4c;
+      font-size: 15px;
+      margin-bottom: 20px;
     }
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 16px;
     }
     th, td {
-      border: 1px solid #b9a48d;
-      padding: 6px;
+      border: 1px solid #d2bfa3;
+      padding: 10px;
       text-align: center;
+      font-size: 15px;
     }
     th {
-      background: #f2e8dc;
+      background: #f7f2eb;
+      color: #5c4a3b;
+      font-weight: bold;
+    }
+    td input {
+      width: 70px;
+      padding: 6px;
+      font-size: 14px;
+      text-align: center;
+      border: 1px solid #d6c6b5;
+      border-radius: 4px;
+      background: #fcf8f2;
     }
     button {
-      margin-top: 20px;
+      margin-top: 24px;
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       border: 1px solid #b9a48d;
-      background: linear-gradient(#f7e6d7, #e8d2b2);
-      border-radius: 10px;
+      background: linear-gradient(to bottom, #f9e7d2, #e4c9ac);
+      border-radius: 12px;
       font-size: 16px;
       font-weight: bold;
+      color: #4e3f33;
       cursor: pointer;
     }
+    button:hover {
+      background: linear-gradient(to bottom, #f2d8bb, #dcbca0);
+    }
     .result {
-      margin-top: 20px;
+      margin-top: 24px;
+    }
+    .result table {
+      background: #fffefc;
     }
   </style>
 </head>
@@ -69,11 +95,11 @@
         <th>OSAT 成績 (%)</th>
         <th>SOS 成績 (%)</th>
       </tr>
-      <tr><td>Central1D</td><td><input value="6"></td><td><input value="50"></td><td><input value="40"></td></tr>
-      <tr><td>Central1B</td><td><input value="10"></td><td><input value="57"></td><td><input value="50"></td></tr>
-      <tr><td>Central1A</td><td><input value="23"></td><td><input value="57"></td><td><input value="50"></td></tr>
-      <tr><td>Central1E</td><td><input value="16"></td><td><input value="31"></td><td><input value="31"></td></tr>
-      <tr><td>Central1C</td><td><input value="20"></td><td><input value="50"></td><td><input value="60"></td></tr>
+      <tr><td>Wendy</td><td><input value="6"></td><td><input value="50"></td><td><input value="40"></td></tr>
+      <tr><td>Ean</td><td><input value="10"></td><td><input value="57"></td><td><input value="50"></td></tr>
+      <tr><td>Carol</td><td><input value="23"></td><td><input value="57"></td><td><input value="50"></td></tr>
+      <tr><td>Chance</td><td><input value="16"></td><td><input value="31"></td><td><input value="31"></td></tr>
+      <tr><td>Jewel</td><td><input value="20"></td><td><input value="50"></td><td><input value="60"></td></tr>
     </table>
     <button onclick="calculate()">計算還需幾份才能達到 78%</button>
     <div class="result" id="result"></div>
