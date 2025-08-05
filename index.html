@@ -87,13 +87,13 @@
 <body>
   <div class="container">
     <h2>🎯 OSAT / SOS 達標計算器</h2>
-    <p>輸入各區的總份數與目前成績，幫你計算還需補幾份才達到 78%</p>
+    <p>輸入各區的總份數與目前成績，目標78% </p>
     <table id="inputTable">
       <tr>
-        <th>區域名稱</th>
+        <th>AC區</th>
         <th>總回應數 B</th>
-        <th>OSAT 成績 (%)</th>
-        <th>SOS 成績 (%)</th>
+        <th>OSAT  (%)</th>
+        <th>SOS  (%)</th>
       </tr>
       <tr><td>Wendy</td><td><input value="6"></td><td><input value="50"></td><td><input value="40"></td></tr>
       <tr><td>Ean</td><td><input value="10"></td><td><input value="57"></td><td><input value="50"></td></tr>
@@ -101,14 +101,14 @@
       <tr><td>Chance</td><td><input value="16"></td><td><input value="31"></td><td><input value="31"></td></tr>
       <tr><td>Jewel</td><td><input value="20"></td><td><input value="50"></td><td><input value="60"></td></tr>
     </table>
-    <button onclick="calculate()">計算還需幾份才能達到 78%</button>
+    <button onclick="calculate()">開始計算</button>
     <div class="result" id="result"></div>
   </div>
 
   <script>
     function calculate() {
       const rows = document.querySelectorAll('#inputTable tr');
-      let html = '<table><tr><th>區域名稱</th><th>需補 OSAT 份數</th><th>需補 SOS 份數</th></tr>';
+      let html = '<table><tr><th>AC區</th><th>OSAT 缺</th><th> SOS 缺</th></tr>';
       for (let i = 1; i < rows.length; i++) {
         const cells = rows[i].querySelectorAll('td');
         const area = cells[0].textContent;
@@ -130,3 +130,4 @@
   </script>
 </body>
 </html>
+
