@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>OSAT / SOS 達標計算器</title>
+  <style>
+    body {
+      font-family: 'Microsoft JhengHei', sans-serif;
+      background: #fdf9f4;
+      margin: 0;
+      padding: 20px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+    }
+    .container {
+      background: white;
+      width: 520px;
+      border: 1px solid #cbbca9;
+      border-radius: 12px;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 24px;
+    }
+    h2 {
+      background-color: #f2e8dc;
+      border: 2px solid #cbbca9;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      font-size: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+    }
+    th, td {
+      border: 1px solid #b9a48d;
+      padding: 6px;
+      text-align: center;
+    }
+    th {
+      background: #f2e8dc;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #b9a48d;
+      background: linear-gradient(#f7e6d7, #e8d2b2);
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🎯 OSAT / SOS 達標計算器</h2>
+    <p>輸入各區的總份數與目前成績，幫你計算還需補幾份才達到 78%</p>
+    <table id="inputTable">
+      <tr>
+        <th>區域名稱</th>
+        <th>總回應數 B</th>
+        <th>OSAT 成績 (%)</th>
+        <th>SOS 成績 (%)</th>
+      </tr>
+      <tr><td>Central1D</td><td><input value="6"></td><td><input value="50"></td><td><input value="40"></td></tr>
+      <tr><td>Central1B</td><td><input value="10"></td><td><input value="57"></td><td><input value="50"></td></tr>
+      <tr><td>Central1A</td><td><input value="23"></td><td><input value="57"></td><td><input value="50"></td></tr>
+      <tr><td>Central1E</td><td><input value="16"></td><td><input value="31"></td><td><input value="31"></td></tr>
+      <tr><td>Central1C</td><td><input value="20"></td><td><input value="50"></td><td><input value="60"></td></tr>
+    </table>
+    <button onclick="calculate()">計算還需幾份才能達到 78%</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function calculate() {
+      const rows = document.querySelectorAll('#inputTable tr');
+      let html = '<table><tr><th>區域名稱</th><th>需補 OSAT 份數</th><th>需補 SOS 份數</th></tr>';
+      for (let i = 1; i < rows.length; i++) {
+        const cells = rows[i].querySelectorAll('td');
+        const area = cells[0].textContent;
+        const B = parseInt(cells[1].querySelector('input').value);
+        const D = parseFloat(cells[2].querySelector('input').value);
+        const F = parseFloat(cells[3].querySelector('input').value);
+
+        const C = Math.round(B * D / 100);
+        const E = Math.round(B * F / 100);
+
+        const xOSAT = Math.max(0, Math.ceil((0.78 * B - C) / 0.22));
+        const xSOS = Math.max(0, Math.ceil((0.78 * B - E) / 0.22));
+
+        html += `<tr><td>${area}</td><td>${xOSAT} 份</td><td>${xSOS} 份</td></tr>`;
+      }
+      html += '</table>';
+      document.getElementById('result').innerHTML = html;
+    }
+  </script>
+</body>
+</html>
