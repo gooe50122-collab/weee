@@ -106,11 +106,10 @@
         <th>SOS  (%)</th>
       </tr>
       <tr><td>Wendy</td><td><input value=""></td><td><input value=""></td><td><input value=""></td></tr>
-      <tr><td>Ean</td><td><input value=""></td><td><input value=""></td><td><input value=""></td></tr>
       <tr><td>Carol</td><td><input value=""></td><td><input value=""></td><td><input value=""></td></tr>
-      <tr><td>Chance</td><td><input value=""></td><td><input value=""></td><td><input value=""></td></tr>
       <tr><td>Jewel</td><td><input value=""></td><td><input value=""></td><td><input value=""></td></tr>
-      <tr><td>Store</td><td><input value=""></td><td><input value=""></td><td><input value=""></td></tr>
+      <tr><td>Chance</td><td><input value=""></td><td><input value=""></td><td><input value=""></td></tr>
+      <tr><td>Ean</td><td><input value=""></td><td><input value=""></td><td><input value=""></td></tr>
     </table>
     <button onclick="calculate()">開始計算</button>
     <div class="result" id="result"></div>
@@ -130,8 +129,8 @@
         const C = Math.round(B * D / 100);
         const E = Math.round(B * F / 100);
 
-        const xOSAT = Math.max(0, Math.ceil((0.78 * B - C) / 0.22));
-        const xSOS = Math.max(0, Math.ceil((0.78 * B - E) / 0.22));
+        const xOSAT = Math.max(0, Math.ceil((0.79 * B - C) / 0.22));
+        const xSOS = Math.max(0, Math.ceil((0.79 * B - E) / 0.22));
 
         html += `<tr><td>${area}</td><td>${xOSAT} 份</td><td>${xSOS} 份</td></tr>`;
       }
@@ -141,6 +140,7 @@
   </script>
 </body>
 </html>
+
 
 
 
