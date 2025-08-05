@@ -2,39 +2,39 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <title>OSAT / SOS 達標計算器</title>
+  <title>達標計算器</title>
   <style>
     body {
       font-family: 'Microsoft JhengHei', sans-serif;
       background: #fdf9f4;
       margin: 0;
       padding: 40px 0;
-      overflow: hidden;
+      overflow: auto;
       display: flex;
       justify-content: center;
     }
     .container {
       background: #fff;
-      width: 540px;
+      width: 560px;
       border: 1px solid #cbbca9;
       border-radius: 16px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      padding: 32px;
+      padding: 36px;
     }
     h2 {
       background-color: #f2e8dc;
       border: 2px solid #cbbca9;
       border-radius: 12px;
-      padding: 12px;
+      padding: 20px;
       text-align: center;
-      font-size: 22px;
+      font-size: 30px;
       font-weight: bold;
-      margin-bottom: 10px;
+      margin-bottom: 14px;
     }
     p {
       text-align: center;
       color: #6b5c4c;
-      font-size: 15px;
+      font-size: 16px;
       margin-bottom: 20px;
     }
     table {
@@ -45,7 +45,7 @@
       border: 1px solid #d2bfa3;
       padding: 10px;
       text-align: center;
-      font-size: 15px;
+      font-size: 16px;
     }
     th {
       background: #f7f2eb;
@@ -53,22 +53,22 @@
       font-weight: bold;
     }
     td input {
-      width: 70px;
+      width: 75px;
       padding: 6px;
-      font-size: 14px;
+      font-size: 15px;
       text-align: center;
       border: 1px solid #d6c6b5;
       border-radius: 4px;
       background: #fcf8f2;
     }
     button {
-      margin-top: 24px;
+      margin-top: 28px;
       width: 100%;
-      padding: 12px;
+      padding: 14px;
       border: 1px solid #b9a48d;
       background: linear-gradient(to bottom, #f9e7d2, #e4c9ac);
       border-radius: 12px;
-      font-size: 16px;
+      font-size: 17px;
       font-weight: bold;
       color: #4e3f33;
       cursor: pointer;
@@ -77,20 +77,30 @@
       background: linear-gradient(to bottom, #f2d8bb, #dcbca0);
     }
     .result {
-      margin-top: 24px;
+      margin-top: 26px;
     }
     .result table {
       background: #fffefc;
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .result th, .result td {
+      border: 1px solid #d2bfa3;
+      padding: 10px;
+      font-size: 16px;
+    }
+    .result th {
+      background-color: #f7f2eb;
+      color: #5c4a3b;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h2>🎯 OSAT / SOS 達標計算器</h2>
-    <p>輸入各區的總份數與目前成績，目標78% </p>
     <table id="inputTable">
       <tr>
-        <th>AC區</th>
+        <th>AC</th>
         <th>總回應數 </th>
         <th>OSAT  (%)</th>
         <th>SOS  (%)</th>
@@ -108,7 +118,7 @@
   <script>
     function calculate() {
       const rows = document.querySelectorAll('#inputTable tr');
-      let html = '<table><tr><th>AC區</th><th>OSAT 缺</th><th> SOS 缺</th></tr>';
+      let html = '<table><tr><th>AC</th><th>OSAT 缺</th><th> SOS 缺</th></tr>';
       for (let i = 1; i < rows.length; i++) {
         const cells = rows[i].querySelectorAll('td');
         const area = cells[0].textContent;
@@ -130,5 +140,3 @@
   </script>
 </body>
 </html>
-
-
